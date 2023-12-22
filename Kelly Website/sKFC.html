@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelly Criterion Calculator Website</title>
+   <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <!-- Include the navigation bar -->
+    <nav>
+        <ul>
+            <li><a href="mASKFCI.html">Multi-Amount Strategy Calculator</a></li>
+            <li><a href="sASKFCI.html">Simple Kelly Fraction Calculator</a></li>
+            <li><a href="sKFC.html">Single Amount Strategy Calculator</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Kelly Fraction Calculator</h1>
+        <div class="input-group">
+        <label for="amount">Amount:</label><br>
+        <input type="number" id="amount" name="amount"><br>
+    </div>
+
+        <div class="input-group">
+        <label for="winrate">Win Rate (%):</label><br>
+        <input type="number" id="winrate" name="winrate" value="70"><br>
+    </div>
+
+        <div class="input-group">
+        <label for="profit">Profit (%):</label><br>
+        <input type="number" id="profit" name="profit" value="15"><br>
+    </div>
+
+        <div class="input-group">
+        <label for="loss">Loss (%):</label><br>
+        <input type="number" id="loss" name="loss" value="10"><br>
+    </div>
+
+        <button onclick="calculateKelly()">Calculate</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function calculateKelly() {
+            var amount = document.getElementById('amount').value;
+            var winrate = document.getElementById('winrate').value;
+            var profit = document.getElementById('profit').value;
+            var loss = document.getElementById('loss').value;
+
+            var kellyFraction = ((profit / loss) * (winrate / 100) - ((100 - winrate) / 100)) / (profit / loss);
+            kellyFraction = Math.min(1, kellyFraction);
+
+            var betAmount = amount * kellyFraction;
+
+            document.getElementById('result').innerHTML = "Kelly Fraction: " + kellyFraction.toFixed(2) + "<br>" + "Kelly Amount: " + betAmount.toFixed(2);
+        }
+    </script>
+</body>
+</html>
