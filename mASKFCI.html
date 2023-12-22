@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelly Criterion Calculator Website</title>
+    <title>Trading Strategy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Include the navigation bar -->
+    <nav>
+        <ul>
+            <li><a href="mASKFCI.html">Multi-Amount Strategy Calculator</a></li>
+            <li><a href="sASKFCI.html">Simple Kelly Fraction Calculator</a></li>
+            <li><a href="sKFC.html">Single Amount Strategy Calculator</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Trading Strategy</h1>
+
+        <div class="input-group">
+            <label for="initial-amount">Initial Amount:</label>
+            <input type="number" id="initialAmount" value="6000">
+        </div>
+
+        <div class="input-group">
+            <label for="target-amount">Target Amount:</label>
+            <input type="number" id="target-amount" value="100000">
+        </div>
+
+        <div class="input-group">
+            <label for="First WinRate">First WinRate Percentage:</label>
+            <input type="number" id="firstWinRate"  value="70">
+        </div>
+
+        <div class="input-group">
+            <label for="First Profit">First Profit Percentage:</label>
+            <input type="number" id="firstProfit"  value="15">
+        </div>
+
+        <div class="input-group">
+            <label for="Second WinRate">Second WinRate Percentage:</label>
+            <input type="number" id="secondWinRate" value="50">
+        </div>
+
+        <div class="input-group">
+            <label for="Second Profit">Second Profit Percentage:</label>
+            <input type="number" id="secondProfit" value="25">
+        </div>
+
+        <div class="input-group">
+            <label for="Third WinRate">Third WinRate Percentage:</label>
+            <input type="number" id="thirdWinRate" value="30">
+        </div>
+
+        <div class="input-group">
+            <label for="Third Profit">Third Profit Percentage:</label>
+            <input type="number" id="thirdProfit" value="35">
+        </div>
+
+        <div class="input-group">
+            <label for="loss-percentage">Loss Percentage:</label>
+            <input type="number" id="lossPercentage" value="10">
+        </div>
+
+        <div class="input-group">   <!-- Selector for choosing strategy -->
+            <label for="strategySelector">Select Strategy:</label>
+            <select id="strategySelector">
+                <option value="Iteration">Iteration of Compounding</option>
+                <option value="TargetAmount">Target Amount to Reach</option>
+            </select>
+        </div>
+            <!-- Input fields for strategy-specific parameters -->
+            
+        <div class="input-group">
+            <label for="iterations">Iterations:</label>
+            <input type="number" id="iterations" disabled value="50">
+        </div>
+    
+        <div class="input-group">
+            <label for="targetAmount">Target Amount:</label>
+            <input type="number" id="targetAmount" disabled value="100000">
+        </div>
+
+        <button id="calculate-button">Calculate</button>
+        <div class="result" style="overflow-x:auto;">
+            <p id="result"></p>
+            <table  id="table"></table>
+            <canvas id="chart"></canvas>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="mASKFCS.js"></script>
+    
+</body>
+
+</html>
