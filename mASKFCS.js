@@ -242,6 +242,8 @@ function generateChart(trades, chartElement) {
           label: 'Balance Amount',
           data: amounts,
           borderColor: 'blue',
+          pointRadius: window.innerWidth < 600 ? 0 : 5,
+          pointHoverRadius: window.innerWidth < 600 ? 0 : 8,
           fill: false
       }]
   };
