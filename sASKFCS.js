@@ -177,8 +177,8 @@ function generateChart(iterations) {
                     data: balanceValues,
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 8,
+                    pointRadius: window.innerWidth < 600 ? 0 : 5,
+                    pointHoverRadius: window.innerWidth < 600 ? 0 : 8,
                     fill: false
                 }]
             },
@@ -204,6 +204,19 @@ function generateChart(iterations) {
         // Update the existing chart data and options
         chart.data.labels = Array.from({ length: iterations }, (_, i) => i + 1);
         chart.data.datasets[0].data = balanceValues;
+    
+        // Get the current screen width
+        const screenWidth = window.innerWidth;
+    
+        // Modify the dataset options to hide circle markers if screen width is 600 or less
+        if (screenWidth < 600) {
+            chart.data.datasets[0].pointRadius = 0;
+            chart.data.datasets[0].pointHoverRadius = 0;
+        } else {
+            chart.data.datasets[0].pointRadius = 5;
+            chart.data.datasets[0].pointHoverRadius = 8;
+        }
+    
         chart.update(); // Update the chart
     }
 }
