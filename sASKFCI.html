@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelly Criterion Calculator Website</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include a chart library, e.g., Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Include the navigation bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Simple Kelly Fraction Calculator</a></li>
+            <li><a href="sASKFCI.html">Single Amount Strategy Calculator</a></li>
+            <li><a href="tASKFCI.html">Three-Amount Strategy Calculator</a></li>
+            <li><a href="mASKFCI.html">Multi-Amount Strategy Calculator</a></li>
+        </ul>
+    </nav>
+
+
+<div class="container">
+    <h1>Kelly Criterion Calculator</h1>
+        <!-- Input fields for user parameters -->
+        <div class="input-group">
+        <label for="initialAmount">Initial Amount:</label>
+        <input type="number" id="initialAmount" required value="1000">
+    </div>
+        <div class="input-group">
+        <label for="winRate">Win Rate (%):</label>
+        <input type="number" id="winRate" required value="70">
+    </div>
+        <div class="input-group">
+        <label for="profitPercentage">Profit Percentage (%):</label>
+        <input type="number" id="profitPercentage" required value="15">
+    </div>
+        
+        <div class="input-group">
+        <label for="lossPercentage">Loss Percentage (%):</label>
+        <input type="number" id="lossPercentage" required value="10">
+    </div>
+
+    <div class="input-group">   <!-- Selector for choosing strategy -->
+        <label for="strategySelector">Select Strategy:</label>
+        <select id="strategySelector">
+            <option value="Iteration">Iteration of Compounding</option>
+            <option value="TargetAmount">Target Amount to Reach</option>
+        </select>
+    </div>
+        <!-- Input fields for strategy-specific parameters -->
+        
+    <div class="input-group">
+        <label for="iterations">Iterations:</label>
+        <input type="number" id="iterations" disabled value="50">
+    </div>
+
+    <div class="input-group">
+        <label for="targetAmount">Target Amount:</label>
+        <input type="number" id="targetAmount" disabled value="100000">
+    </div>
+        <!-- Button to trigger calculation -->
+        <button onclick="calculate()">Calculate</button>
+
+    <!-- Display table and chart -->
+    <div class="result" style="overflow-x:auto;">
+        <table id="resultTable" >
+            <!-- Table headers will be added dynamically -->
+        </table>
+
+        <canvas id="chart"  ></canvas>
+    </div>
+     
+</div>
+
+<script src="sASKFCS.js"></script>
+</body>
+</html>

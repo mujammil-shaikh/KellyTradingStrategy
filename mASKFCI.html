@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelly Criterion Simulation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Simple Kelly Fraction Calculator</a></li>
+            <li><a href="sASKFCI.html">Single Amount Strategy Calculator</a></li>
+            <li><a href="tASKFCI.html">Three-Amount Strategy Calculator</a></li>
+            <li><a href="mASKFCI.html">Multi-Amount Strategy Calculator</a></li>
+        </ul>
+    </nav>
+
+<div class="container">
+  <h1>Kelly Criterion Simulation</h1>
+
+    <div class="input-group">
+      <label for="initialAmount">Enter initial amount:</label>
+      <input type="number"  id="initialAmount" required  value="10000">
+    </div>
+    <div class="input-group">
+      <label for="initialProfit">Enter initial profit percentage:</label>
+      <input type="number"  id="initialProfit" required value="15">
+    </div>
+    <div class="input-group">
+      <label for="initialWinrate">Enter initial win rate percentage:</label>
+      <input type="number"  id="initialWinrate" required value="70">
+    </div>
+    <div class="input-group">
+      <label for="loss">Enter loss percentage:</label>
+      <input type="number"  id="loss" required value="10">
+    </div>
+    <div class="input-group">
+      <label for="amountSplitNumber">Enter amount split number:</label>
+      <input type="number"  id="amountSplitNumber" required value="5">
+    </div>
+    <div class="input-group">
+      <label for="profitIncreamentNumber">Enter profit increment percentage:</label>
+      <input type="number"  id="profitIncreamentNumber" required value="5">
+    </div>
+    <div class="input-group">
+      <label for="winrateDecrementNumber">Enter win rate decrement percentage:</label>
+      <input type="number"  id="winrateDecrementNumber" required value="5">
+    </div>
+    <div class="input-group">   <!-- Selector for choosing strategy -->
+      <label for="strategySelector">Select Strategy:</label>
+      <select id="strategySelector">
+          <option value="Iteration">Iteration of Compounding</option>
+          <option value="TargetAmount">Target Amount to Reach</option>
+      </select>
+  </div>
+      <!-- Input fields for strategy-specific parameters -->
+  <div class="input-group">
+      <label for="iterations">Iterations:</label>
+      <input type="number" class="form-control" id="iteration" disabled value="50">
+  </div>
+  <div class="input-group">
+      <label for="targetAmount">Target Amount:</label>
+      <input type="number" class="form-control" id="targetAmount" disabled value="100000">
+  </div>
+
+    <button type="button" class="btn btn-primary" onclick="runSimulation()">Run Simulation</button>
+    
+
+  <div id="summary" ></div>
+  <div class="result" style="overflow-x:auto;">
+    <table >
+    <thead>
+      <tr>
+        <th>Iteration</th>
+        <th>Before Trade Amount</th>
+        <th>Trade Output</th>
+        <th>Balance Amount</th>
+        <th>Kelly Fraction Amount</th>
+      </tr>
+    </thead>
+    <tbody id="simulationTableBody"></tbody>
+  </table>
+
+  <canvas id="chart" ></canvas>
+</div>
+
+</div>
+
+<script src="mASKFCS.js"></script>
+
+</body>
+</html>
